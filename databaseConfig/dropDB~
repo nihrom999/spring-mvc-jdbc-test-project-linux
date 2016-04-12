@@ -1,0 +1,26 @@
+#!/bin/bash
+  
+EXPECTED_ARGS=2
+E_BADARGS=65
+
+if [ $# == $EXPECTED_ARGS ]
+then
+
+  MYSQL=`which mysql`
+
+  DB_NAME=$(<dbName)  
+
+  SQL1="DROP SCHEMA IF EXISTS ${DB_NAME};"
+  SQL2="DROP SCHEMA IF EXISTS ${DB_NAME}_test;"
+
+  $MYSQL -u$1 -p$2 -e "$SQL"
+
+  echo "Droped:
+${DB_NAME}
+${DB_NAME}_test"
+  
+else
+  echo "Error: Bad args. You need to have ${EXPECTED_ARGS} args: <mysql user> <user's password>"
+
+  exit $E_BADARGS
+fi

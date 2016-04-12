@@ -1,0 +1,14 @@
+ALTER TABLE department AUTO_INCREMENT = 1;
+ALTER TABLE employee AUTO_INCREMENT = 1;
+
+INSERT INTO department (name) VALUES("first_department");
+INSERT INTO department (name) VALUES("second_department");
+INSERT INTO department (name) VALUES("therd_department");
+INSERT INTO department (name) VALUES("fourth_department");
+INSERT INTO department (name) VALUES("fifth_department");
+
+INSERT INTO employee (first_name, last_name, date_of_birth, salary, department_id) values ("Dmitry", "Kokan", "1994-10-10", 250, 1);
+INSERT INTO employee (first_name, last_name, date_of_birth, salary, department_id) values ("Petya", "Popov", "1994-10-10", 150, 2);
+INSERT INTO employee (first_name, last_name, date_of_birth, salary, department_id) values ("Kirill", "Dushkevich", "1994-10-10", 650, 3);
+INSERT INTO employee (first_name, last_name, date_of_birth, salary, department_id) values ("Ivan", "Petrov", "1994-10-10", 60, 4);
+INSERT INTO employee (first_name, last_name, date_of_birth, salary, department_id) values ("Andrey", "Krach", "1994-10-10", 1000, 5);

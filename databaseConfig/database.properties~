@@ -1,0 +1,4 @@
+db.driver=com.mysql.jdbc.Driver
+db.database=jdbc:mysql://localhost:3306/projectDB
+db.user=root
+db.password=art5126
