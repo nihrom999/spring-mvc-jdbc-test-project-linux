@@ -11,10 +11,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.sql.Date;
 import java.util.List;
 
@@ -25,8 +29,12 @@ import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = JdbcServiceTestContext.class)
+@ComponentScan(basePackages="com.test.project")
+@PropertySource("database.properties")
 @Transactional
 public class JdbcServiceTest {
+
+
 
     @Autowired
     private DepartmentService departmentService;
@@ -34,6 +42,8 @@ public class JdbcServiceTest {
     @Autowired
     private EmployeeService employeeService;
 
+    @Resource
+    private Environment env;
 
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -41,7 +51,7 @@ public class JdbcServiceTest {
     public void TestGetAllDepartments() {
         LOGGER.info("Test SERVICE: run TestGetAllDepartments");
         int size = departmentService.getAllDepartments().size();
-        Assert.assertEquals(5, size);
+        Assert.assertTrue(Long.parseLong(env.getProperty("db.database.test.size")) == size);
     }
 
     @Test
@@ -107,7 +117,7 @@ public class JdbcServiceTest {
         LOGGER.info("Test SERVICE: run TestGetAllEmployees");
         int size = employeeService.getAllEmployees().size();
 
-        Assert.assertEquals(5, size);
+        Assert.assertTrue(Long.parseLong(env.getProperty("db.database.test.size")) == size);
     }
 
     @Test

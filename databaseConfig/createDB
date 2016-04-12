@@ -42,12 +42,14 @@ $2_test"
   S3="db.database.test=jdbc:mysql://localhost:$1/$2_test"
   S4="db.user=$3"
   S5="db.password=$4"
+  S6="db.database.test.size=5"
 
   echo "${S1}
 ${S2}
 ${S3}
 ${S4}
-${S5}" > database.properties
+${S5}
+${S6}" > database.properties
 
 cp database.properties ../app-dao-jdbc/src/main/resources 
  

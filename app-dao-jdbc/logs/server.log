@@ -490,3 +490,167 @@
 2016-04-12 17:53:59,772 [main] Test DAO: run TestGetAllEmployees
 2016-04-12 17:53:59,773 [main] DAO: Get all Employees
 2016-04-12 17:53:59,773 [main] DAO: Get all Employees
+2016-04-12 22:12:59,908 [main] Test DAO: run TestAddDepartment
+2016-04-12 22:12:59,908 [main] Test DAO: run TestAddDepartment
+2016-04-12 22:12:59,944 [main] DAO: Get all Departments
+2016-04-12 22:12:59,944 [main] DAO: Get all Departments
+2016-04-12 22:12:59,958 [main] DAO: Add new Department
+2016-04-12 22:12:59,958 [main] DAO: Add new Department
+2016-04-12 22:12:59,983 [main] DAO: Get all Departments
+2016-04-12 22:12:59,983 [main] DAO: Get all Departments
+2016-04-12 22:13:00,060 [main] Test DAO: run TestUpdateEmployee
+2016-04-12 22:13:00,060 [main] Test DAO: run TestUpdateEmployee
+2016-04-12 22:13:00,061 [main] DAO: Add new Employee
+2016-04-12 22:13:00,061 [main] DAO: Add new Employee
+2016-04-12 22:13:00,067 [main] DAO: Get Employee with id = 12
+2016-04-12 22:13:00,067 [main] DAO: Get Employee with id = 12
+2016-04-12 22:13:00,089 [main] DAO: Update Employee with id = 12
+2016-04-12 22:13:00,089 [main] DAO: Update Employee with id = 12
+2016-04-12 22:13:00,091 [main] DAO: Get Employee with id = 12
+2016-04-12 22:13:00,091 [main] DAO: Get Employee with id = 12
+2016-04-12 22:13:00,156 [main] Test DAO: run TestDeleteDepartment
+2016-04-12 22:13:00,156 [main] Test DAO: run TestDeleteDepartment
+2016-04-12 22:13:00,156 [main] DAO: Get all Departments
+2016-04-12 22:13:00,156 [main] DAO: Get all Departments
+2016-04-12 22:13:00,158 [main] DAO: Delete Department with id = 5
+2016-04-12 22:13:00,158 [main] DAO: Delete Department with id = 5
+2016-04-12 22:13:00,159 [main] DAO: Get all Departments
+2016-04-12 22:13:00,159 [main] DAO: Get all Departments
+2016-04-12 22:13:00,252 [main] Test DAO: run TestAddEmployee
+2016-04-12 22:13:00,252 [main] Test DAO: run TestAddEmployee
+2016-04-12 22:13:00,253 [main] DAO: Get all Employees
+2016-04-12 22:13:00,253 [main] DAO: Get all Employees
+2016-04-12 22:13:00,254 [main] DAO: Add new Employee
+2016-04-12 22:13:00,254 [main] DAO: Add new Employee
+2016-04-12 22:13:00,256 [main] DAO: Get all Employees
+2016-04-12 22:13:00,256 [main] DAO: Get all Employees
+2016-04-12 22:13:00,325 [main] Test DAO: run TestUpdateDepartment
+2016-04-12 22:13:00,325 [main] Test DAO: run TestUpdateDepartment
+2016-04-12 22:13:00,325 [main] DAO: Add new Department
+2016-04-12 22:13:00,325 [main] DAO: Add new Department
+2016-04-12 22:13:00,327 [main] DAO: Get Department with id = 12
+2016-04-12 22:13:00,327 [main] DAO: Get Department with id = 12
+2016-04-12 22:13:00,328 [main] DAO: Update Department with id = 12
+2016-04-12 22:13:00,328 [main] DAO: Update Department with id = 12
+2016-04-12 22:13:00,330 [main] DAO: Get Department with id = 12
+2016-04-12 22:13:00,330 [main] DAO: Get Department with id = 12
+2016-04-12 22:13:00,394 [main] Test DAO: run TestGetAllDepartments
+2016-04-12 22:13:00,394 [main] Test DAO: run TestGetAllDepartments
+2016-04-12 22:13:00,395 [main] DAO: Get all Departments
+2016-04-12 22:13:00,395 [main] DAO: Get all Departments
+2016-04-12 22:13:00,424 [main] Test DAO: run TestGetAllEmployeesFromDepartment
+2016-04-12 22:13:00,424 [main] Test DAO: run TestGetAllEmployeesFromDepartment
+2016-04-12 22:13:00,427 [main] DAO: Add new Department
+2016-04-12 22:13:00,427 [main] DAO: Add new Department
+2016-04-12 22:13:00,429 [main] DAO: Add new Employee
+2016-04-12 22:13:00,429 [main] DAO: Add new Employee
+2016-04-12 22:13:00,431 [main] DAO: Add new Employee
+2016-04-12 22:13:00,431 [main] DAO: Add new Employee
+2016-04-12 22:13:00,433 [main] DAO: Get all Employees from Department with id = 13
+2016-04-12 22:13:00,433 [main] DAO: Get all Employees from Department with id = 13
+2016-04-12 22:13:00,501 [main] Test DAO: run TestDeleteEmployee
+2016-04-12 22:13:00,501 [main] Test DAO: run TestDeleteEmployee
+2016-04-12 22:13:00,503 [main] DAO: Get all Employees
+2016-04-12 22:13:00,503 [main] DAO: Get all Employees
+2016-04-12 22:13:00,505 [main] DAO: Delete Employee with id = 5
+2016-04-12 22:13:00,505 [main] DAO: Delete Employee with id = 5
+2016-04-12 22:13:00,507 [main] DAO: Get all Employees
+2016-04-12 22:13:00,507 [main] DAO: Get all Employees
+2016-04-12 22:13:00,572 [main] Test DAO: run TestGetEmployee
+2016-04-12 22:13:00,572 [main] Test DAO: run TestGetEmployee
+2016-04-12 22:13:00,573 [main] DAO: Add new Employee
+2016-04-12 22:13:00,573 [main] DAO: Add new Employee
+2016-04-12 22:13:00,575 [main] DAO: Get Employee with id = 16
+2016-04-12 22:13:00,575 [main] DAO: Get Employee with id = 16
+2016-04-12 22:13:00,637 [main] Test DAO: run TestGetDepartment
+2016-04-12 22:13:00,637 [main] Test DAO: run TestGetDepartment
+2016-04-12 22:13:00,638 [main] DAO: Add new Department
+2016-04-12 22:13:00,638 [main] DAO: Add new Department
+2016-04-12 22:13:00,639 [main] DAO: Get Department with id = 14
+2016-04-12 22:13:00,639 [main] DAO: Get Department with id = 14
+2016-04-12 22:13:00,692 [main] Test DAO: run TestGetAllEmployees
+2016-04-12 22:13:00,692 [main] Test DAO: run TestGetAllEmployees
+2016-04-12 22:13:00,693 [main] DAO: Get all Employees
+2016-04-12 22:13:00,693 [main] DAO: Get all Employees
+2016-04-12 22:13:23,324 [main] Test DAO: run TestAddDepartment
+2016-04-12 22:13:23,324 [main] Test DAO: run TestAddDepartment
+2016-04-12 22:13:23,327 [main] DAO: Get all Departments
+2016-04-12 22:13:23,327 [main] DAO: Get all Departments
+2016-04-12 22:13:23,339 [main] DAO: Add new Department
+2016-04-12 22:13:23,339 [main] DAO: Add new Department
+2016-04-12 22:13:23,365 [main] DAO: Get all Departments
+2016-04-12 22:13:23,365 [main] DAO: Get all Departments
+2016-04-12 22:13:23,491 [main] Test DAO: run TestUpdateEmployee
+2016-04-12 22:13:23,491 [main] Test DAO: run TestUpdateEmployee
+2016-04-12 22:13:23,491 [main] DAO: Add new Employee
+2016-04-12 22:13:23,491 [main] DAO: Add new Employee
+2016-04-12 22:13:23,497 [main] DAO: Get Employee with id = 17
+2016-04-12 22:13:23,497 [main] DAO: Get Employee with id = 17
+2016-04-12 22:13:23,521 [main] DAO: Update Employee with id = 17
+2016-04-12 22:13:23,521 [main] DAO: Update Employee with id = 17
+2016-04-12 22:13:23,524 [main] DAO: Get Employee with id = 17
+2016-04-12 22:13:23,524 [main] DAO: Get Employee with id = 17
+2016-04-12 22:13:23,601 [main] Test DAO: run TestDeleteDepartment
+2016-04-12 22:13:23,601 [main] Test DAO: run TestDeleteDepartment
+2016-04-12 22:13:23,603 [main] DAO: Get all Departments
+2016-04-12 22:13:23,603 [main] DAO: Get all Departments
+2016-04-12 22:13:23,604 [main] DAO: Delete Department with id = 5
+2016-04-12 22:13:23,604 [main] DAO: Delete Department with id = 5
+2016-04-12 22:13:23,606 [main] DAO: Get all Departments
+2016-04-12 22:13:23,606 [main] DAO: Get all Departments
+2016-04-12 22:13:23,668 [main] Test DAO: run TestAddEmployee
+2016-04-12 22:13:23,668 [main] Test DAO: run TestAddEmployee
+2016-04-12 22:13:23,669 [main] DAO: Get all Employees
+2016-04-12 22:13:23,669 [main] DAO: Get all Employees
+2016-04-12 22:13:23,671 [main] DAO: Add new Employee
+2016-04-12 22:13:23,671 [main] DAO: Add new Employee
+2016-04-12 22:13:23,673 [main] DAO: Get all Employees
+2016-04-12 22:13:23,673 [main] DAO: Get all Employees
+2016-04-12 22:13:23,744 [main] Test DAO: run TestUpdateDepartment
+2016-04-12 22:13:23,744 [main] Test DAO: run TestUpdateDepartment
+2016-04-12 22:13:23,747 [main] DAO: Add new Department
+2016-04-12 22:13:23,747 [main] DAO: Add new Department
+2016-04-12 22:13:23,754 [main] DAO: Get Department with id = 16
+2016-04-12 22:13:23,754 [main] DAO: Get Department with id = 16
+2016-04-12 22:13:23,759 [main] DAO: Update Department with id = 16
+2016-04-12 22:13:23,759 [main] DAO: Update Department with id = 16
+2016-04-12 22:13:23,761 [main] DAO: Get Department with id = 16
+2016-04-12 22:13:23,761 [main] DAO: Get Department with id = 16
+2016-04-12 22:13:23,897 [main] Test DAO: run TestGetAllDepartments
+2016-04-12 22:13:23,897 [main] Test DAO: run TestGetAllDepartments
+2016-04-12 22:13:23,898 [main] DAO: Get all Departments
+2016-04-12 22:13:23,898 [main] DAO: Get all Departments
+2016-04-12 22:13:23,917 [main] Test DAO: run TestGetAllEmployeesFromDepartment
+2016-04-12 22:13:23,917 [main] Test DAO: run TestGetAllEmployeesFromDepartment
+2016-04-12 22:13:23,918 [main] DAO: Add new Department
+2016-04-12 22:13:23,918 [main] DAO: Add new Department
+2016-04-12 22:13:23,919 [main] DAO: Add new Employee
+2016-04-12 22:13:23,919 [main] DAO: Add new Employee
+2016-04-12 22:13:23,921 [main] DAO: Add new Employee
+2016-04-12 22:13:23,921 [main] DAO: Add new Employee
+2016-04-12 22:13:23,922 [main] DAO: Get all Employees from Department with id = 17
+2016-04-12 22:13:23,922 [main] DAO: Get all Employees from Department with id = 17
+2016-04-12 22:13:23,978 [main] Test DAO: run TestDeleteEmployee
+2016-04-12 22:13:23,978 [main] Test DAO: run TestDeleteEmployee
+2016-04-12 22:13:23,980 [main] DAO: Get all Employees
+2016-04-12 22:13:23,980 [main] DAO: Get all Employees
+2016-04-12 22:13:23,982 [main] DAO: Delete Employee with id = 5
+2016-04-12 22:13:23,982 [main] DAO: Delete Employee with id = 5
+2016-04-12 22:13:23,984 [main] DAO: Get all Employees
+2016-04-12 22:13:23,984 [main] DAO: Get all Employees
+2016-04-12 22:13:24,045 [main] Test DAO: run TestGetEmployee
+2016-04-12 22:13:24,045 [main] Test DAO: run TestGetEmployee
+2016-04-12 22:13:24,046 [main] DAO: Add new Employee
+2016-04-12 22:13:24,046 [main] DAO: Add new Employee
+2016-04-12 22:13:24,048 [main] DAO: Get Employee with id = 21
+2016-04-12 22:13:24,048 [main] DAO: Get Employee with id = 21
+2016-04-12 22:13:24,146 [main] Test DAO: run TestGetDepartment
+2016-04-12 22:13:24,146 [main] Test DAO: run TestGetDepartment
+2016-04-12 22:13:24,147 [main] DAO: Add new Department
+2016-04-12 22:13:24,147 [main] DAO: Add new Department
+2016-04-12 22:13:24,150 [main] DAO: Get Department with id = 18
+2016-04-12 22:13:24,150 [main] DAO: Get Department with id = 18
+2016-04-12 22:13:24,212 [main] Test DAO: run TestGetAllEmployees
+2016-04-12 22:13:24,212 [main] Test DAO: run TestGetAllEmployees
+2016-04-12 22:13:24,213 [main] DAO: Get all Employees
+2016-04-12 22:13:24,213 [main] DAO: Get all Employees
