@@ -24,7 +24,6 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @TransactionConfiguration(defaultRollback = true)
-@ComponentScan(basePackages="com.test.project")
 @PropertySource("database.properties")
 public class JdbcDaoTestContext {
 

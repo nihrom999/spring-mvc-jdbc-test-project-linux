@@ -38,6 +38,7 @@
         </element>
       </element>
       <element id="javaee-facet-resources" facet="app-web/web/Web" />
+      <element id="file-copy" path="$PROJECT_DIR$/app-dao-jdbc/src/main/resources/database.properties" />
     </root>
   </artifact>
 </component>

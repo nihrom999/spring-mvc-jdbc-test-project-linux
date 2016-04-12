@@ -31,8 +31,8 @@ public class JdbcDaoContext {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("db.driver"));
         dataSource.setUrl(env.getProperty("db.database"));
-        dataSource.setUsername("db.user");
-        dataSource.setPassword("db.password");
+        dataSource.setUsername(env.getProperty("db.user"));
+        dataSource.setPassword(env.getProperty("db.password"));
 
         return dataSource;
     }
