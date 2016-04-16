@@ -12,10 +12,10 @@ import java.util.List;
  */
 public interface DepartmentService {
 
-    public Long addDepartment(Department department);
-    public Department getDepartment(Long id);
-    public void updateDepartment(Department department);
-    public void deleteDepartment(Long id);
-    public List<Department> getAllDepartments();
-    public List<Employee> getAllEmployeesFromDepartment(Long departmentId);
+    Long addDepartment(Department department);
+    Department getDepartment(Long id);
+    void updateDepartment(Department department);
+    void deleteDepartment(Long id);
+    List<Department> getAllDepartments();
+    List<Employee> getAllEmployeesFromDepartment(Long departmentId);
 }

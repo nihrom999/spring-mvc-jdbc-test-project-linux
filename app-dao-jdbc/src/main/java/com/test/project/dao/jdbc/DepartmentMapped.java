@@ -1,6 +1,7 @@
 package com.test.project.dao.jdbc;
 
 import com.test.project.core.Department;
+import com.test.project.core.Employee;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -15,3 +16,4 @@ public final class DepartmentMapped implements RowMapper<Department> {
         return department;
     }
 }
+
