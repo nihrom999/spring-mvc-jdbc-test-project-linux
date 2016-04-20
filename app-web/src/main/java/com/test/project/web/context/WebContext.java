@@ -6,10 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-/**
- * Created by Arty on 02.03.2016.
- */
-
 @Configuration
 @ComponentScan(basePackages = "com.test.project")
 public class WebContext {
