@@ -11,14 +11,6 @@
 
     <artifactId>app-dao-jdbc</artifactId>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <spring.version>4.1.1.RELEASE</spring.version>
-        <junit.version>4.11</junit.version>
-        <cglib.version>3.1</cglib.version>
-        <mysql-connector.version>5.1.6</mysql-connector.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.test.project</groupId>
@@ -31,6 +23,37 @@
             <artifactId>app-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
     </dependencies>
 
 
