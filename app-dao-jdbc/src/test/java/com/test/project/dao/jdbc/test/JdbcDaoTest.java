@@ -140,7 +140,7 @@ public class JdbcDaoTest {
     @Test
     public void TestUpdateEmployee(){
         LOGGER.info("Test DAO: run TestUpdateEmployee");
-        long id = employeeDao.addEmployee(new Employee("bob", "bobron", new Date(1241), null, 1L));
+        long id = employeeDao.addEmployee(new Employee("bob", "bobron", Date.valueOf("2000-01-01"), null, 1L));
         Employee employee = employeeDao.getEmployee(id);
         employee.setFirstName("Rob");
         employeeDao.updateEmployee(employee);

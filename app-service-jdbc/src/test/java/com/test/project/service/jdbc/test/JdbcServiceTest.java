@@ -22,10 +22,6 @@ import javax.annotation.Resource;
 import java.sql.Date;
 import java.util.List;
 
-/**
- * Created by arty on 27.3.16.
- */
-
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = JdbcServiceTestContext.class)
@@ -33,8 +29,6 @@ import java.util.List;
 @PropertySource("database.properties")
 @Transactional
 public class JdbcServiceTest {
-
-
 
     @Autowired
     private DepartmentService departmentService;
