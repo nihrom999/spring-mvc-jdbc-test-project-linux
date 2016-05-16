@@ -94,8 +94,23 @@ public class JdbcDaoTest {
     public void TestGetAllEmployeesFromDepartment(){
         LOGGER.info("Test DAO: run TestGetAllEmployeesFromDepartment");
         long idDepartment = departmentDao.addDepartment(new Department("test"));
-        long idEmployee1 = employeeDao.addEmployee(new Employee("bob", "borson", new Date(1241), null, idDepartment));
-        long idEmployee2 = employeeDao.addEmployee(new Employee("rob","robson", new Date(1242), null, idDepartment));
+        long idEmployee1 = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("borson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(idDepartment)
+                        .build()
+        );
+
+        long idEmployee2 = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("rob")
+                        .lastName("robson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(idDepartment)
+                        .build()
+        );
 
         Assert.assertEquals(2, departmentDao.getAllEmployeesFromDepartment(idDepartment).size());
     }
@@ -112,7 +127,15 @@ public class JdbcDaoTest {
     public void TestAddEmployee(){
         LOGGER.info("Test DAO: run TestAddEmployee");
         int size = employeeDao.getAllEmployees().size();
-        long id = employeeDao.addEmployee(new Employee("bob", "borson", new Date(1241), null, 1L));
+        long id = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("borson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(1L)
+                        .build()
+        );
+
         Assert.assertEquals(size + 1, employeeDao.getAllEmployees().size());
     }
 
@@ -131,7 +154,15 @@ public class JdbcDaoTest {
     @Test
     public void TestGetEmployee(){
         LOGGER.info("Test DAO: run TestGetEmployee");
-        long id = employeeDao.addEmployee(new Employee("bob", "bobron", new Date(1241), null, 1L));
+        long id = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bobson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(1L)
+                        .build()
+        );
+
         Employee employee = employeeDao.getEmployee(id);
 
         Assert.assertEquals("bob", employee.getFirstName());
@@ -140,7 +171,15 @@ public class JdbcDaoTest {
     @Test
     public void TestUpdateEmployee(){
         LOGGER.info("Test DAO: run TestUpdateEmployee");
-        long id = employeeDao.addEmployee(new Employee("bob", "bobron", Date.valueOf("2000-01-01"), null, 1L));
+        long id = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bobson")
+                        .dateOfBirth(Date.valueOf("2000-01-01"))
+                        .departmentId(1L)
+                        .build()
+        );
+
         Employee employee = employeeDao.getEmployee(id);
         employee.setFirstName("Rob");
         employeeDao.updateEmployee(employee);

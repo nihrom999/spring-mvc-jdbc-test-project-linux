@@ -99,8 +99,24 @@ public class JdbcServiceTest {
 
         LOGGER.info("Test SERVICE: run TestGetAllEmployeesFromDepartment");
         long idDepartment = departmentService.addDepartment(new Department("test"));
-        long idEmployee1 = employeeService.addEmployee(new Employee("bob", "borson", new Date(1241), null, idDepartment));
-        long idEmployee2 = employeeService.addEmployee(new Employee("rob", "robson", new Date(1242), null, idDepartment));
+
+        long idEmployee1 = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("borson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(idDepartment)
+                        .build()
+        );
+
+        long idEmployee2 = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("rob")
+                        .lastName("robson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(idDepartment)
+                        .build()
+        );
 
         Assert.assertEquals(2, departmentService.getAllEmployeesFromDepartment(idDepartment).size());
     }
@@ -119,7 +135,15 @@ public class JdbcServiceTest {
 
         LOGGER.info("Test SERVICE: run TestAddEmployee");
         int size = employeeService.getAllEmployees().size();
-        long id = employeeService.addEmployee(new Employee("bob", "borson", new Date(1241), null, 1L));
+        long id = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("borson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(1L)
+                        .build()
+        );
+
         Assert.assertEquals(size + 1, employeeService.getAllEmployees().size());
     }
 
@@ -139,7 +163,15 @@ public class JdbcServiceTest {
     @Test
     public void TestGetEmployee() {
         LOGGER.info("Test SERVICE: run TestGetEmployee");
-        long id = employeeService.addEmployee(new Employee("bob", "bobron", new Date(1241), null, 1L));
+        long id = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bobson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(1L)
+                        .build()
+        );
+
         Employee employee = employeeService.getEmployee(id);
 
         Assert.assertEquals("bob", employee.getFirstName());
@@ -148,7 +180,14 @@ public class JdbcServiceTest {
     @Test
     public void TestUpdateEmployee() {
         LOGGER.info("Test SERVICE: run TestUpdateEmployee");
-        long id = employeeService.addEmployee(new Employee("bob", "bobron", new Date(1241), null, 1L));
+        long id = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bobson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(1L)
+                        .build()
+        );
         Employee employee = employeeService.getEmployee(id);
         employee.setFirstName("Rob");
         employeeService.updateEmployee(employee);
@@ -160,7 +199,14 @@ public class JdbcServiceTest {
     public void TestGetEmployeesDepartment(){
         LOGGER.info("Test SERVICE: run TestGetEmployeesDepartment");
         long idDep = departmentService.addDepartment(new Department("test department"));
-        long idEmp = employeeService.addEmployee(new Employee("bob", "bobron", new Date(1241), null, idDep));
+        long idEmp = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bobson")
+                        .dateOfBirth(new Date(1241))
+                        .departmentId(idDep)
+                        .build()
+        );
 
         Assert.assertTrue(idDep == employeeService.getEmployeesDepartment(idEmp).getId());
     }

@@ -16,6 +16,14 @@ public class Employee {
     public Employee() {
     }
 
+    private Employee(Builder builder){
+        firstName = builder.firstName;
+        lastName = builder.lastName;
+        dateOfBirth = builder.dateOfBirth;
+        salary = builder.salary;
+        departmentId = builder.departmentId;
+    }
+
     public Employee(String firstName, String lastName, Date datoOfBirth, Double salary, Long departmentId) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -82,5 +90,42 @@ public class Employee {
                 ", salary=" + salary +
                 ", departmentId=" + departmentId +
                 '}';
+    }
+
+    public static class Builder {
+        private String firstName;
+        private String lastName;
+        private Date dateOfBirth;
+        private Double salary;
+        private Long departmentId;
+
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder dateOfBirth(Date dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+            return this;
+        }
+
+        public Builder salary(Double salary) {
+            this.salary = salary;
+            return this;
+        }
+
+        public Builder departmentId(Long departmentId) {
+            this.departmentId = departmentId;
+            return this;
+        }
+
+        public Employee build(){
+            return new Employee(this);
+        }
     }
 }

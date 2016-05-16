@@ -73,7 +73,10 @@ public class JdbcDepartmentDao implements DepartmentDao {
         this.jdbcTemplateObject.update(UPDATE_SQL, department.getName(), department.getId());
     }
 
-
+    /*
+    * This method will delete the department and all it employees
+    * due to cascade-delete in database
+    * */
     public void deleteDepartment(Long id) {
         LOGGER.info("DAO: Delete Department with id = " + id.toString());
         this.jdbcTemplateObject.update(DELETE_SQL, id);
