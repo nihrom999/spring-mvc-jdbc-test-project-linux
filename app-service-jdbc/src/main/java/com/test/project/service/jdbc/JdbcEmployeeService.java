@@ -19,14 +19,11 @@ import java.util.List;
 @Transactional
 public class JdbcEmployeeService implements EmployeeService{
 
+    @Autowired
     private EmployeeDao employeeDao;
 
     @Autowired
     private DepartmentDao departmentDao;
-
-    public JdbcEmployeeService(EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
-    }
 
     private static final Logger LOGGER = LogManager.getLogger();
 

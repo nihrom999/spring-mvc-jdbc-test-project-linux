@@ -9,8 +9,6 @@ import java.util.List;
  * Created by Arty on 21.02.2016.
  */
 public interface EmployeeDao {
-    public void setDataSource(DataSource dataSource);
-
     Long addEmployee(Employee employee);
     Employee getEmployee(Long id);
     void updateEmployee(Employee employee);

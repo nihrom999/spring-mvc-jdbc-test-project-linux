@@ -126,8 +126,8 @@ public class JdbcServiceTest {
 
         LOGGER.info("Test SERVICE: run TestGetAllEmployees");
         int size = employeeService.getAllEmployees().size();
-
-        Assert.assertTrue(Long.parseLong(env.getProperty("db.database.test.size")) == size);
+        int realSize = Integer.parseInt(env.getProperty("db.database.test.size"));
+        Assert.assertTrue(realSize == size);
     }
 
     @Test
@@ -196,7 +196,7 @@ public class JdbcServiceTest {
     }
 
     @Test
-    public void TestGetEmployeesDepartment(){
+    public void TestGetEmployeeDepartment(){
         LOGGER.info("Test SERVICE: run TestGetEmployeesDepartment");
         long idDep = departmentService.addDepartment(new Department("test department"));
         long idEmp = employeeService.addEmployee(

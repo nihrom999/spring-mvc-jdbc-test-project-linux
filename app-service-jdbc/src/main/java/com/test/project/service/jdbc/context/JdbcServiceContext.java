@@ -42,26 +42,31 @@ public class JdbcServiceContext {
 
     @Bean
     public EmployeeService getEmployeeService(){
-        return new JdbcEmployeeService(getEmployeeDao());
+
+        return new JdbcEmployeeService();
     }
 
     @Bean
     public DepartmentService getDepartmentService(){
-        return new JdbcDepartmentService(getDepartmentDao());
+
+        return new JdbcDepartmentService();
     }
 
     @Bean
     public DataSourceTransactionManager getTransactionManager() {
+
         return new DataSourceTransactionManager(getDataSource());
     }
 
     @Bean
     public DepartmentDao getDepartmentDao() {
-        return new JdbcDepartmentDao(getDataSource());
+
+        return new JdbcDepartmentDao();
     }
 
     @Bean
     public EmployeeDao getEmployeeDao() {
-        return new JdbcEmployeeDao(getDataSource());
+
+        return new JdbcEmployeeDao();
     }
 }

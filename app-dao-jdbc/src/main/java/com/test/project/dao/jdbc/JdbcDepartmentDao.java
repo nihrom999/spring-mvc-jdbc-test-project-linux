@@ -5,6 +5,7 @@ import com.test.project.core.Employee;
 import com.test.project.dao.api.DepartmentDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -19,8 +20,8 @@ import java.util.List;
 
 public class JdbcDepartmentDao implements DepartmentDao {
 
+    @Autowired
     private JdbcTemplate jdbcTemplateObject;
-    private DataSource dataSource;
 
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -30,18 +31,6 @@ public class JdbcDepartmentDao implements DepartmentDao {
     private final String UPDATE_SQL = "update department set name = ? where department_id = ?";
     private final String DELETE_SQL = "delete from department where department_id = ?";
     private final String EMPLOYEE_SQL = "select employee_id as id, first_name, last_name, salary, date_of_birth from employee where department_id = ?";
-
-    public JdbcDepartmentDao(DataSource dataSource) {
-        this.dataSource = dataSource;
-        this.jdbcTemplateObject = new JdbcTemplate(dataSource);
-    }
-
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-        this.jdbcTemplateObject = new JdbcTemplate(dataSource);
-    }
-
 
     public Long addDepartment(final Department department) {
         LOGGER.info("DAO: Add new Department");

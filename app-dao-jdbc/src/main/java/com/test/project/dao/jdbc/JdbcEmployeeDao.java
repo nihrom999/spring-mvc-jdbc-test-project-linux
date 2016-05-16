@@ -4,6 +4,7 @@ import com.test.project.core.Employee;
 import com.test.project.dao.api.EmployeeDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -19,8 +20,8 @@ import java.util.List;
 
 public class JdbcEmployeeDao implements EmployeeDao {
 
+    @Autowired
     private JdbcTemplate jdbcTemplateObject;
-    private DataSource dataSource;
 
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -38,18 +39,6 @@ public class JdbcEmployeeDao implements EmployeeDao {
 
     private final String GET_ALL_SQL =
             "select employee_id as id, first_name, last_name, date_of_birth, salary, department_id from employee";
-
-
-    public JdbcEmployeeDao(DataSource dataSource) {
-        this.dataSource = dataSource;
-        this.jdbcTemplateObject = new JdbcTemplate(dataSource);
-    }
-
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-        this.jdbcTemplateObject = new JdbcTemplate(dataSource);
-    }
 
 
     public Long addEmployee(final Employee employee) {

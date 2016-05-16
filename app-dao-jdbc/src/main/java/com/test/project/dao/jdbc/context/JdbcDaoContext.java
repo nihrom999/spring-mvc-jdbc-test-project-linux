@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.annotation.Resource;
@@ -39,11 +40,16 @@ public class JdbcDaoContext {
 
     @Bean
     public DepartmentDao getDepartmentDao() {
-        return new JdbcDepartmentDao(getDataSource());
+        return new JdbcDepartmentDao();
     }
 
     @Bean
     public EmployeeDao getEmployeeDao() {
-        return new JdbcEmployeeDao(getDataSource());
+        return new JdbcEmployeeDao();
+    }
+
+    @Bean
+    public JdbcTemplate getJdbcTemplate(){
+        return new JdbcTemplate(getDataSource());
     }
 }

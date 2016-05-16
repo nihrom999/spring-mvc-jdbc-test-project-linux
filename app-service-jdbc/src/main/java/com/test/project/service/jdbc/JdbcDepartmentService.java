@@ -21,11 +21,8 @@ import javax.sql.DataSource;
 @Transactional
 public class JdbcDepartmentService implements DepartmentService{
 
+    @Autowired
     private DepartmentDao departmentDao;
-
-    public JdbcDepartmentService(DepartmentDao departmentDao) {
-        this.departmentDao = departmentDao;
-    }
 
     private static final Logger LOGGER = LogManager.getLogger();
 

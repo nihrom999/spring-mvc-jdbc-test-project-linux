@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -26,7 +27,6 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @TransactionConfiguration(defaultRollback = true)
-@ComponentScan(basePackages="com.test.project")
 @PropertySource("database.properties")
 public class JdbcServiceTestContext {
 
@@ -41,12 +41,12 @@ public class JdbcServiceTestContext {
 
     @Bean
     public EmployeeService getEmployeeService(){
-        return new JdbcEmployeeService(getEmployeeDao());
+        return new JdbcEmployeeService();
     }
 
     @Bean
     public DepartmentService getDepartmentService(){
-        return new JdbcDepartmentService(getDepartmentDao());
+        return new JdbcDepartmentService();
     }
 
     @Bean
@@ -56,12 +56,16 @@ public class JdbcServiceTestContext {
 
     @Bean
     public DepartmentDao getDepartmentDao() {
-        return new JdbcDepartmentDao(dataSource());
+        return new JdbcDepartmentDao();
     }
 
     @Bean
     public EmployeeDao getEmployeeDao() {
-        return new JdbcEmployeeDao(dataSource());
+        return new JdbcEmployeeDao();
     }
 
+    @Bean
+    public JdbcTemplate getJdbcTemplate(){
+        return new JdbcTemplate(dataSource());
+    }
 }
