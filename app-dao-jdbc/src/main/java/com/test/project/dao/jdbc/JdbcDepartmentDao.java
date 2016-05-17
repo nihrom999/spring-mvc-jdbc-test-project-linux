@@ -6,6 +6,7 @@ import com.test.project.dao.api.DepartmentDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -25,12 +26,23 @@ public class JdbcDepartmentDao implements DepartmentDao {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private final String GET_ALL_SQL = "select department_id as id, name from department";
-    private final String GET_SQL = "select department_id as id, name from department where department_id = ?";
-    private final String INSERT_SQL = "insert into department (name) values (?)";
-    private final String UPDATE_SQL = "update department set name = ? where department_id = ?";
-    private final String DELETE_SQL = "delete from department where department_id = ?";
-    private final String EMPLOYEE_SQL = "select employee_id as id, first_name, last_name, salary, date_of_birth from employee where department_id = ?";
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/department_get_all.sql')).inputStream)}")
+    private String GET_ALL_SQL;
+
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/department_get.sql')).inputStream)}")
+    private String GET_SQL;
+
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/department_insert.sql')).inputStream)}")
+    private String INSERT_SQL;
+
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/department_update.sql')).inputStream)}")
+    private String UPDATE_SQL;
+
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/department_delete.sql')).inputStream)}")
+    private String DELETE_SQL;
+
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/department_employee_list.sql')).inputStream)}")
+    private String EMPLOYEE_SQL;
 
     public Long addDepartment(final Department department) {
         LOGGER.info("DAO: Add new Department");

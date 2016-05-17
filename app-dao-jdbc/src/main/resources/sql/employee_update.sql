@@ -1,0 +1,1 @@
+update employee set first_name = ?, last_name = ?, date_of_birth = ?, salary = ?, department_id = ? where employee_id = ?

@@ -5,6 +5,7 @@ import com.test.project.dao.api.EmployeeDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
@@ -25,20 +26,20 @@ public class JdbcEmployeeDao implements EmployeeDao {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private final String INSERT_SQL = "insert into employee " +
-            "(first_name, last_name, date_of_birth, salary, department_id) " +
-            "values (?, ?, ?, ?, ?)";
-    private final String GET_SQL =
-            "select employee_id as id, first_name, last_name, date_of_birth, salary, department_id " +
-            "from employee where employee_id = ?";
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/employee_insert.sql')).inputStream)}")
+    private String INSERT_SQL;
 
-    private final String DELETE_SQL = "delete from employee where employee_id = ?";
-    private final String UPDATE_SQL = "update employee " +
-            "set first_name = ?, last_name = ?, date_of_birth = ?, salary = ?, department_id = ? " +
-            "where employee_id = ?";
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/employee_get.sql')).inputStream)}")
+    private String GET_SQL;
 
-    private final String GET_ALL_SQL =
-            "select employee_id as id, first_name, last_name, date_of_birth, salary, department_id from employee";
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/employee_delete.sql')).inputStream)}")
+    private String DELETE_SQL;
+
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/employee_update.sql')).inputStream)}")
+    private String UPDATE_SQL;
+
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/employee_get_all.sql')).inputStream)}")
+    private String GET_ALL_SQL;
 
 
     public Long addEmployee(final Employee employee) {

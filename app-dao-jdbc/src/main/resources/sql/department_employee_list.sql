@@ -1,0 +1,1 @@
+select employee_id as id, first_name, last_name, salary, date_of_birth from employee where department_id = ?

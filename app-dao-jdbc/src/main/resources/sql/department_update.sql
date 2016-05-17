@@ -1,0 +1,1 @@
+update department set name = ? where department_id = ?

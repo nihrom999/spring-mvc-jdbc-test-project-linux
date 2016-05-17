@@ -1,0 +1,1 @@
+select department_id as id, name from department where department_id = ?

@@ -1,0 +1,1 @@
+insert into employee (first_name, last_name, date_of_birth, salary, department_id) values (?, ?, ?, ?, ?)

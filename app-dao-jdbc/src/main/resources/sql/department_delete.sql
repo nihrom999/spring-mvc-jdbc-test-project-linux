@@ -1,0 +1,1 @@
+delete from department where department_id = ?
