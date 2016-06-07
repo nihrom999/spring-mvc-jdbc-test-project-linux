@@ -3,6 +3,7 @@ package com.test.project.service.api;
 import com.test.project.core.Department;
 import com.test.project.core.Employee;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -16,4 +17,6 @@ public interface EmployeeService {
     void deleteEmployee(Long id);
     List<Employee> getAllEmployees();
     Department getEmployeesDepartment(Long employeeId);
+    List<Employee> getEmployeesWithDateOfBirth(Date date);
+    List<Employee> getEmployeesWithDateOfBirth(Date fromDate, Date toDate);
 }

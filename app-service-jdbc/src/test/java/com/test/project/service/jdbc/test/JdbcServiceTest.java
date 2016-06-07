@@ -210,4 +210,97 @@ public class JdbcServiceTest {
 
         Assert.assertTrue(idDep == employeeService.getEmployeesDepartment(idEmp).getId());
     }
+
+    @Test
+    public void TestGetAverageSalaryInDepartment() {
+        LOGGER.info("Test DAO: run TestGetAverageSalaryInDepartment");
+
+        long idDep = departmentService.addDepartment(new Department("avgTestDep"));
+
+        long idEmp1 = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bobson")
+                        .dateOfBirth(Date.valueOf("2000-01-01"))
+                        .departmentId(idDep)
+                        .salary(100.0)
+                        .build()
+        );
+
+        long idEmp2 = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("borson")
+                        .dateOfBirth(Date.valueOf("2000-01-01"))
+                        .departmentId(idDep)
+                        .salary(200.0)
+                        .build()
+        );
+
+        long idEmp3 = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bodson")
+                        .dateOfBirth(Date.valueOf("2000-01-01"))
+                        .departmentId(idDep)
+                        .salary(300.0)
+                        .build()
+        );
+
+        Assert.assertTrue(departmentService.getAverageSalaryInDepartment(idDep).equals(200.0));
+    }
+
+    @Test
+    public void TestEmployeesWithDateOfBirthInInterval() {
+        LOGGER.info("Test DAO: run TestEmployeesWithDateOfBirthInInterval");
+
+        long idDep = departmentService.addDepartment(new Department("testDep"));
+
+        long idEmp1 = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bobson")
+                        .dateOfBirth(Date.valueOf("2000-01-01"))
+                        .departmentId(idDep)
+                        .build()
+        );
+
+        long idEmp2 = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("borson")
+                        .dateOfBirth(Date.valueOf("2000-01-05"))
+                        .departmentId(idDep)
+                        .build()
+        );
+
+        long idEmp3 = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bodson")
+                        .dateOfBirth(Date.valueOf("2000-01-06"))
+                        .departmentId(idDep)
+                        .build()
+        );
+
+        Assert.assertTrue(employeeService.getEmployeesWithDateOfBirth(Date.valueOf("2000-01-04"), Date.valueOf("2000-01-07")).size() == 2);
+    }
+
+    @Test
+    public void TestEmployeesWithDateOfBirth() {
+        LOGGER.info("Test DAO: run TestEmployeesWithDateOfBirth");
+
+        long idDep = departmentService.addDepartment(new Department("testDep"));
+
+        long idEmp1 = employeeService.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bodson")
+                        .dateOfBirth(Date.valueOf("2000-01-06"))
+                        .departmentId(idDep)
+                        .build()
+        );
+
+        Assert.assertTrue(employeeService.getEmployeesWithDateOfBirth(Date.valueOf("2000-01-06")).size() == 1);
+    }
 }

@@ -25,7 +25,7 @@ import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = JdbcDaoTestContext.class)
-@ComponentScan(basePackages="com.test.project")
+@ComponentScan(basePackages = "com.test.project")
 @PropertySource("database.properties")
 @Transactional
 public class JdbcDaoTest {
@@ -42,14 +42,14 @@ public class JdbcDaoTest {
     private static final Logger LOGGER = LogManager.getLogger();
 
     @Test
-    public void TestGetAllDepartments(){
+    public void TestGetAllDepartments() {
         LOGGER.info("Test DAO: run TestGetAllDepartments");
         int size = departmentDao.getAllDepartments().size();
         Assert.assertTrue(Long.parseLong(env.getProperty("db.database.test.size")) == size);
     }
 
     @Test
-    public void TestAddDepartment(){
+    public void TestAddDepartment() {
         LOGGER.info("Test DAO: run TestAddDepartment");
         int size = departmentDao.getAllDepartments().size();
         long id = departmentDao.addDepartment(new Department("test"));
@@ -57,7 +57,7 @@ public class JdbcDaoTest {
     }
 
     @Test
-    public void TestDeleteDepartment(){
+    public void TestDeleteDepartment() {
         LOGGER.info("Test DAO: run TestDeleteDepartment");
         List<Department> departmentList = departmentDao.getAllDepartments();
         int size = departmentList.size();
@@ -69,7 +69,7 @@ public class JdbcDaoTest {
     }
 
     @Test
-    public void TestGetDepartment(){
+    public void TestGetDepartment() {
         LOGGER.info("Test DAO: run TestGetDepartment");
         long id = departmentDao.addDepartment(new Department("test"));
 
@@ -79,7 +79,7 @@ public class JdbcDaoTest {
     }
 
     @Test
-    public void TestUpdateDepartment(){
+    public void TestUpdateDepartment() {
         LOGGER.info("Test DAO: run TestUpdateDepartment");
         long id = departmentDao.addDepartment(new Department("test"));
         Department department = departmentDao.getDepartment(id);
@@ -91,7 +91,7 @@ public class JdbcDaoTest {
     }
 
     @Test
-    public void TestGetAllEmployeesFromDepartment(){
+    public void TestGetAllEmployeesFromDepartment() {
         LOGGER.info("Test DAO: run TestGetAllEmployeesFromDepartment");
         long idDepartment = departmentDao.addDepartment(new Department("test"));
         long idEmployee1 = employeeDao.addEmployee(
@@ -116,7 +116,7 @@ public class JdbcDaoTest {
     }
 
     @Test
-    public void TestGetAllEmployees(){
+    public void TestGetAllEmployees() {
         LOGGER.info("Test DAO: run TestGetAllEmployees");
         int size = employeeDao.getAllEmployees().size();
 
@@ -124,7 +124,7 @@ public class JdbcDaoTest {
     }
 
     @Test
-    public void TestAddEmployee(){
+    public void TestAddEmployee() {
         LOGGER.info("Test DAO: run TestAddEmployee");
         int size = employeeDao.getAllEmployees().size();
         long id = employeeDao.addEmployee(
@@ -140,7 +140,7 @@ public class JdbcDaoTest {
     }
 
     @Test
-    public void TestDeleteEmployee(){
+    public void TestDeleteEmployee() {
         LOGGER.info("Test DAO: run TestDeleteEmployee");
         List<Employee> employeeList = employeeDao.getAllEmployees();
         int size = employeeList.size();
@@ -152,7 +152,7 @@ public class JdbcDaoTest {
     }
 
     @Test
-    public void TestGetEmployee(){
+    public void TestGetEmployee() {
         LOGGER.info("Test DAO: run TestGetEmployee");
         long id = employeeDao.addEmployee(
                 new Employee.Builder()
@@ -169,7 +169,7 @@ public class JdbcDaoTest {
     }
 
     @Test
-    public void TestUpdateEmployee(){
+    public void TestUpdateEmployee() {
         LOGGER.info("Test DAO: run TestUpdateEmployee");
         long id = employeeDao.addEmployee(
                 new Employee.Builder()
@@ -187,4 +187,96 @@ public class JdbcDaoTest {
         Assert.assertEquals("Rob", employeeDao.getEmployee(id).getFirstName());
     }
 
+    @Test
+    public void TestGetAverageSalaryInDepartment() {
+        LOGGER.info("Test DAO: run TestGetAverageSalaryInDepartment");
+
+        long idDep = departmentDao.addDepartment(new Department("avgTestDep"));
+
+        long idEmp1 = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bobson")
+                        .dateOfBirth(Date.valueOf("2000-01-01"))
+                        .departmentId(idDep)
+                        .salary(100.0)
+                        .build()
+        );
+
+        long idEmp2 = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("borson")
+                        .dateOfBirth(Date.valueOf("2000-01-01"))
+                        .departmentId(idDep)
+                        .salary(200.0)
+                        .build()
+        );
+
+        long idEmp3 = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bodson")
+                        .dateOfBirth(Date.valueOf("2000-01-01"))
+                        .departmentId(idDep)
+                        .salary(300.0)
+                        .build()
+        );
+
+        Assert.assertTrue(departmentDao.getAverageSalaryInDepartment(idDep).equals(200.0));
+    }
+
+    @Test
+    public void TestEmployeesWithDateOfBirthInInterval() {
+        LOGGER.info("Test DAO: run TestEmployeesWithDateOfBirthInInterval");
+
+        long idDep = departmentDao.addDepartment(new Department("testDep"));
+
+        long idEmp1 = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bobson")
+                        .dateOfBirth(Date.valueOf("2000-01-01"))
+                        .departmentId(idDep)
+                        .build()
+        );
+
+        long idEmp2 = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("borson")
+                        .dateOfBirth(Date.valueOf("2000-01-05"))
+                        .departmentId(idDep)
+                        .build()
+        );
+
+        long idEmp3 = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bodson")
+                        .dateOfBirth(Date.valueOf("2000-01-06"))
+                        .departmentId(idDep)
+                        .build()
+        );
+
+        Assert.assertTrue(employeeDao.getEmployeesWithDateOfBirth(Date.valueOf("2000-01-04"), Date.valueOf("2000-01-07")).size() == 2);
+    }
+
+    @Test
+    public void TestEmployeesWithDateOfBirth() {
+        LOGGER.info("Test DAO: run TestEmployeesWithDateOfBirth");
+
+        long idDep = departmentDao.addDepartment(new Department("testDep"));
+
+        long idEmp1 = employeeDao.addEmployee(
+                new Employee.Builder()
+                        .firstName("bob")
+                        .lastName("bodson")
+                        .dateOfBirth(Date.valueOf("2000-01-06"))
+                        .departmentId(idDep)
+                        .build()
+        );
+
+        Assert.assertTrue(employeeDao.getEmployeesWithDateOfBirth(Date.valueOf("2000-01-06")).size() == 1);
+    }
 }

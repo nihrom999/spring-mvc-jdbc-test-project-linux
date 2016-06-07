@@ -3,6 +3,7 @@ package com.test.project.dao.api;
 import com.test.project.core.Employee;
 
 import javax.sql.DataSource;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -14,4 +15,6 @@ public interface EmployeeDao {
     void updateEmployee(Employee employee);
     void deleteEmployee(Long id);
     List<Employee> getAllEmployees();
+    List<Employee> getEmployeesWithDateOfBirth(Date date);
+    List<Employee> getEmployeesWithDateOfBirth(Date fromDate, Date toDate);
 }

@@ -41,6 +41,11 @@ public class JdbcEmployeeDao implements EmployeeDao {
     @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/employee_get_all.sql')).inputStream)}")
     private String GET_ALL_SQL;
 
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/employee_get_with_specific_dob.sql')).inputStream)}")
+    private String GET_WITH_DATE_OF_BIRTH;
+
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/employee_get_with_dob_in_interval.sql')).inputStream)}")
+    private String GET_WITH_DATE_OF_BIRTH_IN_PERIOD;
 
     public Long addEmployee(final Employee employee) {
         LOGGER.info("DAO: Add new Employee");
@@ -111,6 +116,22 @@ public class JdbcEmployeeDao implements EmployeeDao {
         LOGGER.info("DAO: Get all Employees");
         List<Employee> employeeList = this.jdbcTemplateObject.query(
                 GET_ALL_SQL, new BeanPropertyRowMapper(Employee.class));
+
+        return employeeList;
+    }
+
+    public List<Employee> getEmployeesWithDateOfBirth(Date date){
+        LOGGER.info("DAO: Get Employees with date of birth = " + date.toString());
+        List<Employee> employeeList = this.jdbcTemplateObject.query(
+                GET_WITH_DATE_OF_BIRTH, new BeanPropertyRowMapper(Employee.class),date.toString());
+
+        return employeeList;
+    }
+
+    public List<Employee> getEmployeesWithDateOfBirth(Date fromDate, Date toDate){
+        LOGGER.info("DAO: Get Employees with date of birth from = " + fromDate.toString() + " to " + toDate.toString());
+        List<Employee> employeeList = this.jdbcTemplateObject.query(
+                GET_WITH_DATE_OF_BIRTH_IN_PERIOD, new BeanPropertyRowMapper(Employee.class),fromDate.toString(), toDate.toString());
 
         return employeeList;
     }

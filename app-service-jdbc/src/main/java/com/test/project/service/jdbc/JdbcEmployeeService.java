@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -62,5 +63,15 @@ public class JdbcEmployeeService implements EmployeeService{
         }
 
         return null;
+    }
+
+    public List<Employee> getEmployeesWithDateOfBirth(Date date) {
+        LOGGER.info("DAO: Get Employees with date of birth = " + date.toString());
+        return employeeDao.getEmployeesWithDateOfBirth(date);
+    }
+
+    public List<Employee> getEmployeesWithDateOfBirth(Date fromDate, Date toDate) {
+        LOGGER.info("DAO: Get Employees with date of birth from = " + fromDate.toString() + " to " + toDate.toString());
+        return employeeDao.getEmployeesWithDateOfBirth(fromDate, toDate);
     }
 }

@@ -51,6 +51,11 @@ public class JdbcDepartmentService implements DepartmentService{
         return departmentDao.getAllEmployeesFromDepartment(departmentId);
     }
 
+    public Double getAverageSalaryInDepartment(Long departmentId) {
+        LOGGER.info("SERVICE: Get average salary of Employees in Department with id = " + departmentId.toString());
+        return departmentDao.getAverageSalaryInDepartment(departmentId);
+    }
+
     public void updateDepartment(Department department) {
         LOGGER.info("SERVICE: Update Department with id = " + department.getId());
         departmentDao.updateDepartment(department);

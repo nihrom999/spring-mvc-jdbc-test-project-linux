@@ -44,6 +44,9 @@ public class JdbcDepartmentDao implements DepartmentDao {
     @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/department_employee_list.sql')).inputStream)}")
     private String EMPLOYEE_SQL;
 
+    @Value("#{T(org.apache.commons.io.IOUtils).toString((new org.springframework.core.io.ClassPathResource('/sql/department_get_avg_salary.sql')).inputStream)}")
+    private String AVG_SALARY_SQL;
+
     public Long addDepartment(final Department department) {
         LOGGER.info("DAO: Add new Department");
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -99,6 +102,17 @@ public class JdbcDepartmentDao implements DepartmentDao {
                 EMPLOYEE_SQL, new BeanPropertyRowMapper(Employee.class), departmentId);
 
         return employees;
+    }
+
+    /*
+    * This method will not count employees with no specific salary
+    * */
+    public Double getAverageSalaryInDepartment(Long departmentId) {
+        LOGGER.info("DAO: Get average salary of Employees in Department with id = " + departmentId.toString());
+        Double avgSalary = (Double)this.jdbcTemplateObject.queryForObject(
+                AVG_SALARY_SQL, Double.class, departmentId);
+
+        return avgSalary;
     }
 
 }

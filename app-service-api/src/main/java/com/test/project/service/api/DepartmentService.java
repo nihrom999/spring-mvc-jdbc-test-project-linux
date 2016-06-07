@@ -18,4 +18,5 @@ public interface DepartmentService {
     void deleteDepartment(Long id);
     List<Department> getAllDepartments();
     List<Employee> getAllEmployeesFromDepartment(Long departmentId);
+    Double getAverageSalaryInDepartment(Long departmentId);
 }
